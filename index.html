@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./indexStyle.css">
+    <!-- <script src="./indexJS.js"></script> -->
+    <title>MyPrjs</title>
+</head>
+<body>
+    <h1>我的项目</h1>
+    <div class="listBox">
+        <a href="./Win11Btn/Win11Btn.html" target="_blank" class="listItem">win11任务栏按钮动效</a><br />
+        <a href="./CatWars[Remaking]/CatWars[Remaking].html" target="_blank" class="listItem">猫猫解放战争[重制版]</a><br />
+    </div>
+
+
+    <script>
+        const h1 = document.querySelector('h1')
+        h1.innerHTML = h1.textContent.replace(/\S/g, "<span>$&</span>")
+    
+        let delay = 0
+        document.querySelectorAll('span').forEach((span, index) => {
+            delay += 0.2
+
+            span.style.setProperty('--delay', `${delay}s`)
+        })
+
+        h1.addEventListener('animationend', (e) => {
+            if(e.target === document.querySelector('h1 span:last-child')){
+                h1.classList.add('ended')
+            }
+        })
+    </script>
+</body>
+</html>
